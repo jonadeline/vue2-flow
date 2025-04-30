@@ -53,7 +53,7 @@
   },
   "peerDependencies": {
     "@vue2-flow/core": "0,0.1",
-    "vue": "^2.7.0-0"
+    "vue": "2.7.15"
   },
   "devDependencies": {
     "@tooling/eslint-config": "workspace:*",
