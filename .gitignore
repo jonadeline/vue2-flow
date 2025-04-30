@@ -99,5 +99,5 @@ typedocs
 # Quasar
 .quasar
 
-# pnpm
+# pnp
 .pnpm-store
