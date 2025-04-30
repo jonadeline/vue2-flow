@@ -49,8 +49,7 @@
     "*.css"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "@jonathanadeline:registry": "https://gitlab.com/api/v4/projects/69432376/packages/npm/"
   },
   "scripts": {
     "dev": "pnpm types:watch & pnpm build:watch",
