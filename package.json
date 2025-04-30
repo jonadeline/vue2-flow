@@ -1,5 +1,5 @@
 {
-  "name": "@vue-flow/monorepo",
+  "name": "@vue2-flow/monorepo",
   "version": "0.0.0",
   "private": true,
   "engines": {
@@ -21,7 +21,7 @@
     "changeset:add": "pnpm changeset && git add .changeset && git commit -m 'chore(changeset): add'"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/changelog-gitlab": "^0.13.3",
     "@changesets/cli": "^2.27.5",
     "shx": "^0.3.4",
     "turbo": "^2.0.4",
