@@ -52,13 +52,13 @@
     "test": "exit 0"
   },
   "peerDependencies": {
-    "@vue2-flow/core": "^1.23.0",
-    "vue": "2.7.16"
+    "@vue2-flow/core": "0,0.1",
+    "vue": "^2.7.0-0"
   },
   "devDependencies": {
     "@tooling/eslint-config": "workspace:*",
     "@tooling/vite-config": "workspace:*",
-    "@vue-flow/core": "workspace:*"
+    "@vue2-flow/core": "workspace:*"
   },
   "publishConfig": {
     "registry": "https://gitlab.com/api/v4/projects/69432376/packages/npm/"

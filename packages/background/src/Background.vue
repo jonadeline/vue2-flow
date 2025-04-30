@@ -1,5 +1,5 @@
 <script setup>
-  import { useVueFlow } from "@vue-flow/core";
+  import { useVueFlow } from "@vue2-flow/core";
   import { computed } from "vue";
   import { DefaultBgColors, DotPattern, LinePattern } from "./patterns";
 
