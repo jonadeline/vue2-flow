@@ -1,0 +1,68 @@
+{
+  "name": "@vue2-flow/background",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "author": "Burak Cakmakoglu<78412429+bcakmakoglu@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/jonathanadeline/vue-flow/packages/background"
+  },
+  "homepage": "https://github.com/bcakmakoglu/vue-flow#readme",
+  "bugs": {
+    "url": "https://gitlab.com/jonathanadeline/vue-flow/-/issues"
+  },
+  "keywords": [
+    "vue",
+    "flow",
+    "diagram",
+    "editor",
+    "graph",
+    "node",
+    "link",
+    "port",
+    "slot",
+    "vue3",
+    "composition-api",
+    "vue-flow",
+    "vueflow",
+    "typescript"
+  ],
+  "main": "./dist/vue-flow-background.js",
+  "module": "./dist/vue-flow-background.mjs",
+  "unpkg": "./dist/vue-flow-background.iife.js",
+  "jsdelivr": "./dist/vue-flow-background.iife.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-flow-background.mjs",
+      "require": "./dist/vue-flow-background.js"
+    }
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "pnpm build:watch",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "lint:dist": "eslint --ext \".ts,.tsx\" -c .eslintrc.js --fix --ignore-pattern !**/*  ./dist",
+    "test": "exit 0"
+  },
+  "peerDependencies": {
+    "@vueuse/core": "^10.5.0",
+    "@vue2-flow/core": "0.2.0",
+    "vue": "2.7.15"
+  },
+  "devDependencies": {
+    "@tooling/eslint-config": "workspace:*",
+    "@tooling/vite-config": "workspace:*",
+    "@vue2-flow/core": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

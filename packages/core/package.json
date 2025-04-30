@@ -1,0 +1,83 @@
+{
+  "name": "@vue2-flow/core",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "author": "Jonathan Adeline<13842482-jonathanadeline@users.noreply.gitlab.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/jonathanadeline/vue-flow",
+    "directory": "packages/core"
+  },
+  "homepage": "https://vueflow.dev",
+  "bugs": {
+    "url": "https://gitlab.com/jonathanadeline/vue-flow/-/issues"
+  },
+  "keywords": [
+    "vue",
+    "flow",
+    "diagram",
+    "editor",
+    "graph",
+    "node",
+    "link",
+    "port",
+    "slot",
+    "vue3",
+    "composition-api",
+    "vue-flow",
+    "vueflow",
+    "typescript"
+  ],
+  "main": "./dist/vue-flow-core.js",
+  "module": "./dist/vue-flow-core.mjs",
+  "unpkg": "./dist/vue-flow-core.iife.js",
+  "jsdelivr": "./dist/vue-flow-core.iife.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-flow-core.mjs",
+      "require": "./dist/vue-flow-core.js"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./dist/theme-default.css": "./dist/theme-default.css"
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "dev": "pnpm build:watch",
+    "build": "vite build && vite build -c vite.config.iife.js",
+    "build:watch": "vite build --watch & vite build -c vite.config.iife.js --watch",
+    "theme": "postcss src/style.css -o dist/style.css && postcss src/theme-default.css -o dist/theme-default.css",
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "lint:dist": "eslint --ext \".ts,.tsx\" -c .eslintrc.js --fix --ignore-pattern !**/*  ./dist",
+    "test": "exit 0"
+  },
+  "peerDependencies": {
+    "vue": "2.7.15"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.5.0",
+    "d3-drag": "^3.0.0",
+    "d3-selection": "^3.0.0",
+    "d3-zoom": "^3.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.3",
+    "@tooling/eslint-config": "workspace:*",
+    "@vitejs/plugin-vue2": "^2.3.3",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "postcss-nested": "^6.0.1",
+    "vite": "^4.4.11"
+  }
+}

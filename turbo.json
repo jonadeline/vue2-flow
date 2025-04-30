@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "types", "theme"],
+      "outputs": ["dist/**"]
+    },
+
+    "types": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "theme": {
+      "outputs": ["dist/**"]
+    },
+
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "docs": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    }
+  },
+  "globalEnv": [
+    "VERCEL_ANALYTICS_ID",
+    "ALGOLIA_API_KEY",
+    "SERVER",
+    "VUE_ROUTER_MODE",
+    "VUE_ROUTER_BASE",
+    "NODE_ENV"
+  ]
+}
