@@ -1,0 +1,30 @@
+{
+  "name": "@vue-flow/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "^20",
+    "pnpm": "^9.2.0"
+  },
+  "packageManager": "pnpm@9.3.0",
+  "scripts": {
+    "dev": "pnpm build && turbo dev --filter='./packages/*' --filter=@vue-flow/examples-vite",
+    "dev:docs": "turbo dev --filter=@vue-flow/docs",
+    "changelog": "git-cliff --output CHANGELOG.md && git add CHANGELOG.md && git commit -m \"chore: Update CHANGELOG.md\"",
+    "build:docs": "turbo build --filter ./docs",
+    "build": "turbo build --filter='./packages/*'",
+    "test": "turbo test",
+    "lint": "turbo lint --filter='./packages/*'",
+    "typedocs": "pnpm build && pnpm --dir docs typedocs",
+    "ci:version": "changeset version",
+    "ci:publish": "pnpm lint && pnpm build && pnpm test && changeset publish",
+    "changeset:add": "pnpm changeset && git add .changeset && git commit -m 'chore(changeset): add'"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.5",
+    "shx": "^0.3.4",
+    "turbo": "^2.0.4",
+    "vite": "^4.4.11"
+  }
+}
