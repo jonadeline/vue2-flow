@@ -52,9 +52,9 @@
     "registry": "https://gitlab.com/api/v4/projects/69432376/packages/npm/"
   },
   "scripts": {
-    "dev": "pnpm types:watch & pnpm build:watch",
-    "build": "vite build && vite build -c vite.config.iife.ts",
-    "build:watch": "vite build --watch & vite build -c vite.config.iife.ts --watch",
+    "dev": "pnpm build:watch",
+    "build": "vite build && vite build -c vite.config.iife.js",
+    "build:watch": "vite build --watch & vite build -c vite.config.iife.js --watch",
     "theme": "postcss src/style.css -o dist/style.css && postcss src/theme-default.css -o dist/theme-default.css",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "lint:dist": "eslint --ext \".ts,.tsx\" -c .eslintrc.js --fix --ignore-pattern !**/*  ./dist",

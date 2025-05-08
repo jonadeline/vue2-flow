@@ -1,0 +1,24 @@
+{
+  "name": "@vue2-flow/examples-vite",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint --ext .js,.ts,.vue ./"
+  },
+  "dependencies": {
+    "@dagrejs/dagre": "^1.1.4",
+    "@vue2-flow/background": "workspace:*",
+    "@vue2-flow/core": "workspace:*",
+    "html-to-image": "^1.11.11",
+    "vue-router": "3.6.5"
+  },
+  "devDependencies": {
+    "@tooling/eslint-config": "workspace:*",
+    "@vitejs/plugin-vue2": "^2.3.3",
+    "unplugin-auto-import": "^0.18.3",
+    "vite": "^4.4.11",
+    "vite-svg-loader": "^5.1.0",
+    "vue": "^2.7.15"
+  }
+}

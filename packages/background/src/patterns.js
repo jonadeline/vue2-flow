@@ -8,7 +8,6 @@ export const LinePattern = {
   },
   render(h, ctx) {
     const { dimensions, size, color } = ctx.props
-    console.log('LinePattern rendering with:', { dimensions, size, color })
 
     return h('path', {
       attrs: {
@@ -31,7 +30,6 @@ export const DotPattern = {
   },
   render(h, ctx) {
     const { radius, color } = ctx.props
-    console.log('DotPattern rendering with:', { radius, color })
 
     return h('circle', {
       attrs: {

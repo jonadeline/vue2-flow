@@ -52,6 +52,7 @@
     "test": "exit 0"
   },
   "peerDependencies": {
+    "@vueuse/core": "^10.5.0",
     "@vue2-flow/core": "0.0.1",
     "vue": "2.7.15"
   },

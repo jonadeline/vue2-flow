@@ -2,13 +2,14 @@
   "name": "@vue2-flow/monorepo",
   "version": "0.0.0",
   "private": true,
+  "author": "Jonathan Adeline <jonathan@baserow.io>",
   "engines": {
     "node": "^20",
-    "pnpm": "^9.2.0"
+    "pnpm": ">=9.2.0"
   },
   "packageManager": "pnpm@9.3.0",
   "scripts": {
-    "dev": "pnpm build && turbo dev --filter='./packages/*' --filter=@vue-flow/examples-vite",
+    "dev": "pnpm build && turbo dev --filter='./packages/*' --filter=@vue2-flow/examples-vite",
     "dev:docs": "turbo dev --filter=@vue-flow/docs",
     "changelog": "git-cliff --output CHANGELOG.md && git add CHANGELOG.md && git commit -m \"chore: Update CHANGELOG.md\"",
     "build:docs": "turbo build --filter ./docs",

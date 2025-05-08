@@ -1,74 +1,72 @@
 <script setup>
-  import { useVueFlow } from "@vue2-flow/core";
-  import { computed } from "vue";
-  import { DefaultBgColors, DotPattern, LinePattern } from "./patterns";
+import { useVueFlow } from "@vue2-flow/core";
+import { computed } from "vue";
+import { DefaultBgColors, DotPattern, LinePattern } from "./patterns";
 
-  // Définir les variantes de fond comme constantes pour l'utiliser dans le template
-  const DOTS = "dots";
-  const LINES = "lines";
+// Définir les variantes de fond comme constantes pour l'utiliser dans le template
+const DOTS = "dots";
+const LINES = "lines";
 
-  const props = defineProps({
-    id: { type: String, default: undefined },
-    variant: { type: String, default: "dots" },
-    gap: { type: [Number, Array], default: 20 },
-    size: { type: Number, default: 1 },
-    lineWidth: { type: Number, default: 1 },
-    height: { type: Number, default: 100 },
-    width: { type: Number, default: 100 },
-    x: { type: Number, default: 0 },
-    y: { type: Number, default: 0 },
-    bgColor: { type: String, default: undefined },
-    patternColor: { type: String, default: undefined },
-    color: { type: String, default: undefined },
-    offset: { type: [Number, Array], default: 0 },
-  });
+const props = defineProps({
+  id: { type: String, default: undefined },
+  variant: { type: String, default: "dots" },
+  gap: { type: [Number, Array], default: 20 },
+  size: { type: Number, default: 1 },
+  lineWidth: { type: Number, default: 1 },
+  height: { type: Number, default: 100 },
+  width: { type: Number, default: 100 },
+  x: { type: Number, default: 0 },
+  y: { type: Number, default: 0 },
+  bgColor: { type: String, default: undefined },
+  patternColor: { type: String, default: undefined },
+  color: { type: String, default: undefined },
+  offset: { type: [Number, Array], default: 0 },
+});
 
-  const { id: vueFlowId, viewport } = useVueFlow();
+const { id: vueFlowId, viewport } = useVueFlow();
 
-  const background = computed(() => {
-    const zoom = viewport.value.zoom || 1;
-    const gapArray = Array.isArray(props.gap)
-      ? props.gap
-      : [props.gap, props.gap];
-    const gapX = gapArray[0];
-    const gapY = gapArray[1];
-    const scaledGap = [gapX * zoom || 1, gapY * zoom || 1];
-    const scaledSize = props.size * zoom;
-    const offsetArray = Array.isArray(props.offset)
-      ? props.offset
-      : [props.offset, props.offset];
-    const offsetX = offsetArray[0];
-    const offsetY = offsetArray[1];
+const background = computed(() => {
+  const zoom = viewport.value.zoom || 1;
+  const gapArray = Array.isArray(props.gap)
+    ? props.gap
+    : [props.gap, props.gap];
+  const gapX = gapArray[0];
+  const gapY = gapArray[1];
+  const scaledGap = [gapX * zoom || 1, gapY * zoom || 1];
+  const scaledSize = props.size * zoom;
+  const offsetArray = Array.isArray(props.offset)
+    ? props.offset
+    : [props.offset, props.offset];
+  const offsetX = offsetArray[0];
+  const offsetY = offsetArray[1];
 
-    const scaledOffset = [
-      offsetX * zoom || 1 + scaledGap[0] / 2,
-      offsetY * zoom || 1 + scaledGap[1] / 2,
-    ];
+  const scaledOffset = [
+    offsetX * zoom || 1 + scaledGap[0] / 2,
+    offsetY * zoom || 1 + scaledGap[1] / 2,
+  ];
 
-    return {
-      scaledGap,
-      offset: scaledOffset,
-      size: scaledSize,
-    };
-  });
+  return {
+    scaledGap,
+    offset: scaledOffset,
+    size: scaledSize,
+  };
+});
 
-  // when there are multiple flows on a page we need to make sure that every background gets its own pattern.
-  const patternId = computed(
-    () => `pattern-${vueFlowId}${props.id ? `-${props.id}` : ""}`
-  );
+// when there are multiple flows on a page we need to make sure that every background gets its own pattern.
+const patternId = computed(
+  () => `pattern-${vueFlowId}${props.id ? `-${props.id}` : ""}`
+);
 
-  const patternColor = computed(
-    () =>
-      props.color ||
-      props.patternColor ||
-      DefaultBgColors[props.variant || DOTS]
-  );
+const patternColor = computed(
+  () =>
+    props.color || props.patternColor || DefaultBgColors[props.variant || DOTS]
+);
 </script>
 
 <script>
-  export default {
-    name: "Background",
-  };
+export default {
+  name: "Background",
+};
 </script>
 
 <template>
