@@ -1,9 +1,9 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@latest/schema.json",
   "changelog": [
-    "@changesets/changelog-gitlab",
+    "@changesets/changelog-github",
     {
-      "repo": "jonathanadeline/vue-flow"
+      "repo": "jonadeline/vue2-flow"
     }
   ],
   "fixed": [],

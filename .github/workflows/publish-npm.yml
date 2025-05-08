@@ -1,0 +1,46 @@
+name: Release Packages
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          # This is important to allow changesets to push version updates and tags
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9.3.0 # From your package.json packageManager
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # From your package.json engines
+          registry-url: "https://registry.npmjs.org" # To configure .npmrc for publishing
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create Release or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          # The `publish` script should handle both building and publishing.
+          # Your `pnpm ci:publish` script is "pnpm build && changeset publish"
+          publish: pnpm ci:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NPM_TOKEN is used by `changeset publish` to authenticate with npm
+          # setup-node action configures the .npmrc file using NODE_AUTH_TOKEN
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # for pnpm to auth with npm registry via .npmrc

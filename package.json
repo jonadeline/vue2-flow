@@ -22,11 +22,10 @@
     "changeset:add": "pnpm changeset && git add .changeset && git commit -m 'chore(changeset): add'"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.27.5",
-    "changesets-gitlab": "^0.13.3",
     "shx": "^0.3.4",
     "turbo": "^2.0.4",
     "vite": "^4.4.11"
-  },
-  "dependencies": {}
+  }
 }
