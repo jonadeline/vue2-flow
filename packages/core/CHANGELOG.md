@@ -1,5 +1,11 @@
 # @vue2-flow/core
 
+## 0.3.0
+
+### Minor Changes
+
+- [`3faf799`](https://github.com/jonadeline/vue2-flow/commit/3faf799462316f048d15ecfe91cb1250c80affcf) - fix deps
+
 ## 0.2.0
 
 ### Minor Changes
