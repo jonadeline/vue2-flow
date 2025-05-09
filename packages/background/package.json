@@ -1,6 +1,6 @@
 {
   "name": "@vue2-flow/background",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": false,
   "license": "MIT",
   "author": "Burak Cakmakoglu<78412429+bcakmakoglu@users.noreply.github.com>",
@@ -53,7 +53,7 @@
   },
   "peerDependencies": {
     "@vueuse/core": "^10.5.0",
-    "@vue2-flow/core": "0.0.1",
+    "@vue2-flow/core": "0.1.0",
     "vue": "2.7.15"
   },
   "devDependencies": {
