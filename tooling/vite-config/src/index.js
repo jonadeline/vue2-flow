@@ -1,26 +1,24 @@
-const { defu } = require("defu");
-const vue = require("@vitejs/plugin-vue2");
+const { defu } = require('defu')
+const vue = require('@vitejs/plugin-vue2')
 
 function withConfig(viteConfig) {
   return defu(viteConfig, {
     // https://vitejs.dev/config/
     resolve: {
-      extensions: [".ts", ".vue"],
+      extensions: ['.ts', '.vue'],
     },
     build: {
-      minify: false,
       emptyOutDir: false,
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ["vue", "@vue2-flow/core"],
+        external: ['vue', '@vue2-flow/core'],
         output: {
-          dir: "./dist",
+          dir: './dist',
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
-            vue: "Vue",
-            "@vue2-flow/core": "VueFlowCore",
+            vue: 'Vue',
           },
         },
       },
@@ -30,9 +28,9 @@ function withConfig(viteConfig) {
         reactivityTransform: true,
       }),
     ],
-  });
+  })
 }
 
 module.exports = {
   withConfig,
-};
+}

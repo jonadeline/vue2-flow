@@ -1,15 +1,14 @@
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue2';
-import replace from '@rollup/plugin-replace';
-import pkg from './package.json';
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue2'
+import replace from '@rollup/plugin-replace'
+import pkg from './package.json'
 
 export default defineConfig({
   resolve: {
     extensions: ['.ts', '.vue'],
   },
   build: {
-    minify: false,
     emptyOutDir: false,
     lib: {
       formats: ['es', 'cjs'],
@@ -42,4 +41,4 @@ export default defineConfig({
       preventAssignment: true,
     }),
   ],
-});
+})

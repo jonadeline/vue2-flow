@@ -38,6 +38,7 @@ jobs:
           # The `publish` script should handle both building and publishing.
           # Your `pnpm ci:publish` script is "pnpm build && changeset publish"
           publish: pnpm ci:publish
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # NPM_TOKEN is used by `changeset publish` to authenticate with npm

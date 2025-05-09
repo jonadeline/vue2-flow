@@ -9,7 +9,6 @@ export default defineConfig({
     extensions: ['.js', '.vue'],
   },
   build: {
-    minify: false,
     emptyOutDir: false,
     lib: {
       formats: ['iife'],
@@ -20,7 +19,7 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue', '@vueuse/core', '@vue2-flow/core'],
+      external: ['vue', '@vue2-flow/core'],
       output: {
         format: 'iife',
         dir: './dist',

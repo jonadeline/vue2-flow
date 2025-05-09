@@ -1,5 +1,5 @@
-import { resolve } from 'node:path';
-import { withConfig } from '@tooling/vite-config';
+import { resolve } from 'node:path'
+import { withConfig } from '@tooling/vite-config'
 
 export default withConfig({
   build: {
@@ -10,4 +10,4 @@ export default withConfig({
       name: 'VueFlowBackground',
     },
   },
-});
+})
