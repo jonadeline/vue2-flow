@@ -12,13 +12,15 @@ function withConfig(viteConfig) {
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ['vue', '@vue2-flow/core'],
+        external: ['vue', '@vue/composition-api', '@vue2-flow/core'], // Ajoutez @vue/composition-api si vous l'utilisez
         output: {
           dir: './dist',
           // Provide global variables to use in the UMD build
           // for externalized deps
           globals: {
             vue: 'Vue',
+            '@vue/composition-api': 'VueCompositionAPI',
+            '@vue2-flow/core': 'VueFlowCore',
           },
         },
       },

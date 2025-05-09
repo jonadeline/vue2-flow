@@ -67,7 +67,7 @@ importers:
         specifier: ^10.5.0
         version: 10.11.1(vue@2.7.15)
       vue:
-        specifier: 2.7.15
+        specifier: ^2.7.0
         version: 2.7.15
     devDependencies:
       '@tooling/eslint-config':
@@ -95,7 +95,7 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       vue:
-        specifier: 2.7.15
+        specifier: ^2.7.0
         version: 2.7.15
     devDependencies:
       '@rollup/plugin-replace':
