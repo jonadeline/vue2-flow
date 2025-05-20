@@ -1,5 +1,16 @@
 # @vue2-flow/background
 
+## 2.0.0
+
+### Minor Changes
+
+- [`b31ea72`](https://github.com/jonadeline/vue2-flow/commit/b31ea727b57de12d66f6bad41e0ded3fae053a57) - force version bump
+
+### Patch Changes
+
+- Updated dependencies [[`b31ea72`](https://github.com/jonadeline/vue2-flow/commit/b31ea727b57de12d66f6bad41e0ded3fae053a57)]:
+  - @vue2-flow/core@0.2.0
+
 ## 1.0.0
 
 ### Minor Changes
