@@ -11,7 +11,7 @@
   "snapshot": {
     "useCalculatedVersion": true
   },
-  "ignore": ["@vue-flow/examples-vite"],
+  "ignore": ["@vue2-flow/examples-vite"],
   "commit": false,
   "linked": [],
   "access": "public",
