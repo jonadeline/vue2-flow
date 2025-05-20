@@ -11,13 +11,7 @@
   "snapshot": {
     "useCalculatedVersion": true
   },
-  "ignore": [
-    "@vue-flow/docs",
-    "@vue-flow/examples-vite",
-    "@vue-flow/examples-nuxt3",
-    "@vue-flow/examples-quasar",
-    "@vue-flow/tests"
-  ],
+  "ignore": ["@vue-flow/examples-vite"],
   "commit": false,
   "linked": [],
   "access": "public",
