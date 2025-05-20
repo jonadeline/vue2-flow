@@ -1,5 +1,11 @@
 # @vue2-flow/core
 
+## 0.4.0
+
+### Minor Changes
+
+- [`6454405`](https://github.com/jonadeline/vue2-flow/commit/6454405ab3c3cd9b5b8f880c015b0b003b03a077) - force version bump
+
 ## 0.3.0
 
 ### Minor Changes
