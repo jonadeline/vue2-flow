@@ -1,6 +1,6 @@
 {
   "name": "@vue2-flow/controls",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": false,
   "license": "MIT",
   "author": "Burak Cakmakoglu<78412429+bcakmakoglu@users.noreply.github.com>",
@@ -56,7 +56,7 @@
     "test": "exit 0"
   },
   "peerDependencies": {
-    "@vue2-flow/core": "0.4.0",
+    "@vue2-flow/core": "0.5.0",
     "vue": "2.7.15"
   },
   "devDependencies": {

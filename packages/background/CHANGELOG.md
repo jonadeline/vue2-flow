@@ -1,5 +1,12 @@
 # @vue2-flow/background
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`1e9a424`](https://github.com/jonadeline/vue2-flow/commit/1e9a4240ab0f595343db6cd4e89008551cdd67fc)]:
+  - @vue2-flow/core@0.5.0
+
 ## 4.0.0
 
 ### Minor Changes
