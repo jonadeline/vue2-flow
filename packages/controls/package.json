@@ -1,0 +1,72 @@
+{
+  "name": "@vue2-flow/controls",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "author": "Burak Cakmakoglu<78412429+bcakmakoglu@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcakmakoglu/vue-flow/packages/plugins/controls"
+  },
+  "homepage": "https://github.com/bcakmakoglu/vue-flow#readme",
+  "bugs": {
+    "url": "https://github.com/bcakmakoglu/vue-flow/issues"
+  },
+  "keywords": [
+    "vue",
+    "flow",
+    "diagram",
+    "editor",
+    "graph",
+    "node",
+    "link",
+    "port",
+    "slot",
+    "vue3",
+    "composition-api",
+    "vue-flow",
+    "vueflow",
+    "typescript"
+  ],
+  "main": "./dist/vue-flow-controls.js",
+  "module": "./dist/vue-flow-controls.mjs",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/vue-flow-controls.iife.js",
+  "jsdelivr": "./dist/vue-flow-controls.iife.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-flow-controls.mjs",
+      "require": "./dist/vue-flow-controls.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "dev": "pnpm build:watch",
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "lint:dist": "eslint --ext \".ts,.tsx\" -c .eslintrc.js --fix --ignore-pattern !**/*  ./dist",
+    "test": "exit 0"
+  },
+  "peerDependencies": {
+    "@vue2-flow/core": "0.0.0",
+    "vue": "2.7.15"
+  },
+  "devDependencies": {
+    "@tooling/eslint-config": "workspace:*",
+    "@tooling/vite-config": "workspace:*",
+    "@vue2-flow/core": "workspace:*",
+    "vite-plugin-vue2-svg": "^0.4.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
