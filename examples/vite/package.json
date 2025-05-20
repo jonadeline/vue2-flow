@@ -10,6 +10,7 @@
     "@dagrejs/dagre": "^1.1.4",
     "@vue2-flow/background": "workspace:*",
     "@vue2-flow/core": "workspace:*",
+    "@vue2-flow/controls": "workspace:*",
     "html-to-image": "^1.11.11",
     "vue-router": "3.6.5"
   },

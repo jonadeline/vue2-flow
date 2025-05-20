@@ -4,6 +4,9 @@
 /* import the default theme (optional) */
 @import "node_modules/@vue2-flow/core/dist/theme-default.css";
 
+/* import the default theme (optional) */
+@import "node_modules/@vue2-flow/controls/dist/style.css";
+
 html,
 body,
 #app {
