@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, toRef } from "vue"
+import { defineComponent, toRef, computed, watch } from "vue"
 import { Panel, useVueFlow } from "@vue2-flow/core"
 import ControlButton from "./ControlButton.vue"
 import PlusIcon from "./icons/plus.svg"
@@ -68,9 +68,23 @@ export default defineComponent({
         elementsSelectable.value
     )
 
-    const minZoomReached = toRef(() => viewport.value.zoom <= minZoom.value)
+    const minZoomReached = computed(() => {
+      const result =
+        viewport.value && minZoom.value !== undefined
+          ? viewport.value.zoom <= minZoom.value
+          : false
 
-    const maxZoomReached = toRef(() => viewport.value.zoom >= maxZoom.value)
+      return result
+    })
+
+    const maxZoomReached = computed(() => {
+      const result =
+        viewport.value && maxZoom.value !== undefined
+          ? viewport.value.zoom >= maxZoom.value
+          : false
+
+      return result
+    })
 
     function onZoomInHandler() {
       zoomIn()
@@ -182,6 +196,4 @@ export default defineComponent({
 
     <slot />
   </Panel>
-  <p>DEBUG: minZoomReached: {{ minZoomReached }}</p>
-  <p>DEBUG: maxZoomReached: {{ maxZoomReached }}</p>
 </template>

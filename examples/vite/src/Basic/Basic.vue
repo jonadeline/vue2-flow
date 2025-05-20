@@ -114,6 +114,8 @@ export default {
     :zoom-on-drag="zoomOnScroll"
     :pan-on-scroll="panOnScroll"
     :zoom-on-double-click="zoomOnDoubleClick"
+    :min-zoom="0.8"
+    :max-zoom="1"
   >
     <Controls :show-interactive="false" />
     <Background pattern-color="#ededed" :size="3" :gap="15" />

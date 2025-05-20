@@ -1,19 +1,19 @@
 <script>
-import { useVModel } from '@vueuse/core'
-import { onUnmounted, provide, defineComponent } from 'vue'
-import Viewport from '../Viewport/Viewport.vue'
-import A11yDescriptions from '../../components/A11y/A11yDescriptions.vue'
-import { Slots } from '../../context'
-import { useOnInitHandler } from '../../composables/useOnInitHandler.js'
-import { useWatchProps } from '../../composables/useWatchProps.js'
-import { useVueFlow } from '../../composables/useVueFlow.js'
-import { useHooks } from '../../store/hooks'
-import EdgeRenderer from '../EdgeRenderer/EdgeRenderer.vue'
-import NodeRenderer from '../NodeRenderer/NodeRenderer.vue'
-import { useStylesLoadedWarning } from '../../composables/useStylesLoadedWarning.js'
+import { useVModel } from "@vueuse/core"
+import { onUnmounted, provide, defineComponent } from "vue"
+import Viewport from "../Viewport/Viewport.vue"
+import A11yDescriptions from "../../components/A11y/A11yDescriptions.vue"
+import { Slots } from "../../context"
+import { useOnInitHandler } from "../../composables/useOnInitHandler.js"
+import { useWatchProps } from "../../composables/useWatchProps.js"
+import { useVueFlow } from "../../composables/useVueFlow.js"
+import { useHooks } from "../../store/hooks"
+import EdgeRenderer from "../EdgeRenderer/EdgeRenderer.vue"
+import NodeRenderer from "../NodeRenderer/NodeRenderer.vue"
+import { useStylesLoadedWarning } from "../../composables/useStylesLoadedWarning.js"
 
 export default defineComponent({
-  name: 'VueFlow',
+  name: "VueFlow",
   components: {
     Viewport,
     EdgeRenderer,
@@ -24,6 +24,8 @@ export default defineComponent({
     modelValue: {},
     nodes: {},
     edges: {},
+    minZoom: { type: Number, default: undefined },
+    maxZoom: { type: Number, default: undefined },
     snapToGrid: { default: undefined },
     onlyRenderVisibleElements: { default: undefined },
     edgesUpdatable: { default: undefined },
@@ -58,9 +60,9 @@ export default defineComponent({
     zoomActivationKeyCode: { default: undefined },
   },
   setup(props, { emit, slots }) {
-    const modelValue = useVModel(props, 'modelValue', emit)
-    const modelNodes = useVModel(props, 'nodes', emit)
-    const modelEdges = useVModel(props, 'edges', emit)
+    const modelValue = useVModel(props, "modelValue", emit)
+    const modelNodes = useVModel(props, "nodes", emit)
+    const modelEdges = useVModel(props, "edges", emit)
 
     const flowInstance = useVueFlow(props)
 
