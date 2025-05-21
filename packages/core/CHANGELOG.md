@@ -1,5 +1,11 @@
 # @vue2-flow/core
 
+## 0.6.0
+
+### Minor Changes
+
+- [`dc2869c`](https://github.com/jonadeline/vue2-flow/commit/dc2869cea7799e1d44aec5b79846326eda6d1528) - fix fit view on init
+
 ## 0.5.0
 
 ### Minor Changes
