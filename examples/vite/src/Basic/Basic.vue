@@ -82,12 +82,7 @@ export default {
       },
     ])
 
-    const { onInit, onConnect, addEdges } = useVueFlow()
-
-    onInit((vueFlowInstance) => {
-      vueFlowInstance.fitView({ maxZoom: 1, minZoom: 1 })
-    })
-
+    const { onConnect, addEdges } = useVueFlow()
     onConnect((connection) => {
       addEdges(connection)
     })
@@ -116,6 +111,7 @@ export default {
     :zoom-on-double-click="zoomOnDoubleClick"
     :min-zoom="0.8"
     :max-zoom="1"
+    fit-view-on-init
   >
     <Controls :show-interactive="false" />
     <Background pattern-color="#ededed" :size="3" :gap="15" />

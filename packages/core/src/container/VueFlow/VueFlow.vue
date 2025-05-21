@@ -40,7 +40,7 @@ export default defineComponent({
     panOnScroll: { default: undefined },
     panOnDrag: { default: undefined },
     applyDefault: { default: undefined },
-    fitViewOnInit: { default: undefined },
+    fitViewOnInit: { type: Boolean, default: false },
     connectOnClick: { default: undefined },
     connectionLineStyle: { default: undefined },
     connectionLineOptions: { default: undefined },
