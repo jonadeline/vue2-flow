@@ -143,10 +143,29 @@ export function useDrag(params) {
     autoPanId = requestAnimationFrame(autoPan)
   }
 
+  const eventStart = (event, nodeEl) => {
+    if (
+      event.sourceEvent.type === 'touchmove' &&
+      event.sourceEvent.touches.length > 1
+    ) {
+      return
+    }
+
+    if (nodeDragThreshold.value === 0) {
+      startDrag(event, nodeEl)
+    }
+
+    lastPos = getPointerPosition(event.sourceEvent)
+
+    containerBounds = vueFlowRef.value?.getBoundingClientRect() || null
+    mousePosition = getEventPosition(event.sourceEvent, containerBounds)
+  }
+
   const startDrag = (event, nodeEl) => {
     dragStarted = true
 
     const node = findNode(id)
+
     if (!selectNodesOnDrag.value && !multiSelectionActive.value && node) {
       if (!node.selected) {
         // we need to reset selected nodes when selectNodesOnDrag=false
@@ -185,24 +204,6 @@ export function useDrag(params) {
 
       onStart({ event: event.sourceEvent, node: currentNode, nodes })
     }
-  }
-
-  const eventStart = (event, nodeEl) => {
-    if (
-      event.sourceEvent.type === 'touchmove' &&
-      event.sourceEvent.touches.length > 1
-    ) {
-      return
-    }
-
-    if (nodeDragThreshold.value === 0) {
-      startDrag(event, nodeEl)
-    }
-
-    lastPos = getPointerPosition(event.sourceEvent)
-
-    containerBounds = vueFlowRef.value?.getBoundingClientRect() || null
-    mousePosition = getEventPosition(event.sourceEvent, containerBounds)
   }
 
   const eventDrag = (event, nodeEl) => {
@@ -277,7 +278,7 @@ export function useDrag(params) {
     cancelAnimationFrame(autoPanId)
   }
 
-  watch([() => unref(disabled), el], ([isDisabled, nodeEl], _, onCleanup) => {
+  watch([() => unref(disabled)(), el], ([isDisabled, nodeEl], _, onCleanup) => {
     if (nodeEl) {
       const selection = select(nodeEl)
 
@@ -288,7 +289,7 @@ export function useDrag(params) {
           .on('end', (event) => eventEnd(event))
           .filter((event) => {
             const target = event.target
-            const unrefDragHandle = unref(dragHandle)
+            const unrefDragHandle = unref(dragHandle)()
 
             return (
               !event.button &&

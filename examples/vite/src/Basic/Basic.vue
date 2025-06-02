@@ -1,5 +1,5 @@
 <script>
-import { ref } from "vue"
+import { ref, nextTick } from "vue"
 import { VueFlow, useVueFlow } from "@vue2-flow/core"
 import { Background } from "@vue2-flow/background"
 import { Controls } from "@vue2-flow/controls"
@@ -11,7 +11,18 @@ export default {
     Controls,
   },
   setup() {
-    const nodesDraggable = ref(false)
+    const {
+      nodes: vueFlowNodes,
+      edges: vueFlowEdges,
+      onConnect,
+      addEdges,
+      getSelectedNodes,
+      addSelectedNodes,
+      onNodeClick,
+      onPaneClick,
+    } = useVueFlow()
+
+    const nodesDraggable = ref(true)
     const zoomOnScroll = ref(false)
     const panOnScroll = ref(true)
     const zoomOnDoubleClick = ref(false)
@@ -82,9 +93,40 @@ export default {
       },
     ])
 
-    const { onConnect, addEdges } = useVueFlow()
     onConnect((connection) => {
       addEdges(connection)
+    })
+
+    const preservedSelectedNodeId = ref(null)
+
+    onNodeClick(({ node: clickedNodeData }) => {
+      nextTick(() => {
+        const currentSelectedNodes = getSelectedNodes.value
+        if (currentSelectedNodes.some((n) => n.id === clickedNodeData.id)) {
+          preservedSelectedNodeId.value = clickedNodeData.id
+        } else if (currentSelectedNodes.length === 0) {
+          preservedSelectedNodeId.value = null
+        }
+      })
+    })
+
+    onPaneClick(() => {
+      const idToPreserve = preservedSelectedNodeId.value
+      if (idToPreserve) {
+        setTimeout(() => {
+          const currentSelectedNodesAfterPaneClick = getSelectedNodes.value
+          const nodeToReselect = vueFlowNodes.value.find(
+            (n) => n.id === idToPreserve
+          )
+
+          if (
+            nodeToReselect &&
+            currentSelectedNodesAfterPaneClick.length === 0
+          ) {
+            addSelectedNodes([{ id: nodeToReselect.id }])
+          }
+        }, 0)
+      }
     })
 
     return {
@@ -108,6 +150,7 @@ export default {
     :nodes-draggable="nodesDraggable"
     :zoom-on-drag="zoomOnScroll"
     :pan-on-scroll="panOnScroll"
+    :select-nodes-on-drag="true"
     :zoom-on-double-click="zoomOnDoubleClick"
     :min-zoom="0.8"
     :max-zoom="1"
