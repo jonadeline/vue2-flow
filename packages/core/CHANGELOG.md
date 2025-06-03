@@ -1,5 +1,11 @@
 # @vue2-flow/core
 
+## 0.7.0
+
+### Minor Changes
+
+- [`1417095`](https://github.com/jonadeline/vue2-flow/commit/14170959b6cd6b9b50d0a96d64a1d8dee5fbbb49) - Add drag feature
+
 ## 0.6.0
 
 ### Minor Changes
