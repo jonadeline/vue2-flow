@@ -1,5 +1,12 @@
 # @vue2-flow/controls
 
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`9e0ebea`](https://github.com/jonadeline/vue2-flow/commit/9e0ebeaeaa2b3178d8de495486426f94741ad3ad)]:
+  - @vue2-flow/core@0.8.0
+
 ## 7.0.0
 
 ### Patch Changes

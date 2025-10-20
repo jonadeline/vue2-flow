@@ -1,5 +1,11 @@
 # @vue2-flow/core
 
+## 0.8.0
+
+### Minor Changes
+
+- [`9e0ebea`](https://github.com/jonadeline/vue2-flow/commit/9e0ebeaeaa2b3178d8de495486426f94741ad3ad) Thanks [@jonadeline](https://github.com/jonadeline)! - remove console warning
+
 ## 0.7.0
 
 ### Minor Changes
