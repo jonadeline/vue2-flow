@@ -136,14 +136,5 @@ export function useVueFlow(idOrOpts) {
     scope.vueFlowId = vueFlow.id
   }
 
-  if (isOptsObj) {
-    const instance = getCurrentInstance()
-
-    // ignore the warning if we are in a VueFlow component
-    if (instance?.type?.name !== 'VueFlow') {
-      vueFlow.emits.error(new VueFlowError(ErrorCode.USEVUEFLOW_OPTIONS))
-    }
-  }
-
   return vueFlow
 }
